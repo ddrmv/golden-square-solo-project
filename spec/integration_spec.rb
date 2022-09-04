@@ -7,7 +7,7 @@ require 'order_formatter'
 require 'order'
 
 RSpec.describe "integration" do
-  it "populates and returns the menu" do
+  xit "populates and returns the menu" do
     dish_1 = Dish.new("drink")
     dish_2 = Dish.new("fish")
     dish_3 = Dish.new("salad")
