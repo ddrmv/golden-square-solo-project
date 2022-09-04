@@ -161,6 +161,14 @@ class Listing(dish, price)  # dish is a Dish object
   @price      # price of dish
   @available  # boolean that marks the order as available
 
+  def name
+    @dish.name
+  end
+
+  def price
+    @price
+  end
+
   def available?
     # returns true/false denoting if listing is available
   end

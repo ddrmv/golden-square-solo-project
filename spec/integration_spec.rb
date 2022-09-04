@@ -12,12 +12,15 @@ RSpec.describe "integration" do
     dish_2 = Dish.new("fish")
     dish_3 = Dish.new("salad")
     menu = Menu.new
-    menu.add(dish_1, 3.50)
-    menu.add(dish_2, 5)
-    menu.add(dish_3, 4)
+    listing_1 = Listing.new(dish_1, 3.50)
+    listing_2 = Listing.new(dish_2, 4)
+    listing_3 = Listing.new(dish_3, 5)
+    menu.add(listing_1, 3.50)
+    menu.add(listing_2, 5)
+    menu.add(listing_3, 4)
     menu_formatter = MenuFormatter(menu)
     interface = Interface.new
     expect(interface.show_menu(menu_formatter)).to eq 
-      "Menu\nDrink (3.50)\nFish (5.00)\nSalad (4.00)"
+      "Menu\n1: Drink (3.50)\n2: Fish (4.00)\n3: Salad (5.00)"
   end
 end
