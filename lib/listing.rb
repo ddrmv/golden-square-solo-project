@@ -1,7 +1,9 @@
 class Listing
   def initialize(dish, price, availability = true)
     @dish = dish
-    @price = price
+    raise "Price must be a number." unless price.is_a? Numeric
+    raise "Price cannot be negative." if price < 0
+    @price = price.to_f
     @availability = availability
   end
 

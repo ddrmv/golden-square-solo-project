@@ -19,4 +19,16 @@ RSpec.describe Listing do
     listing = Listing.new(dish, 3.50)
     expect(listing.available?).to eq true
   end
+
+  it "raises error if price is negative" do
+    dish = double(:dish)
+    expect { Listing.new(dish, -3.50) }.to raise_error(
+      "Price cannot be negative.")
+  end
+
+  it "raises error if price is not a number" do
+    dish = double(:dish)
+    expect { Listing.new(dish, "3.50") }.to raise_error(
+      "Price must be a number.")
+  end
 end
