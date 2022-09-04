@@ -105,6 +105,10 @@ _Also design the interface of each class in more detail._
 
 ```ruby
 class Interface
+  def initialize(terminal)
+    @terminal = temrinal
+  end
+
   def show_interface
     # show list of actions, including exit of the application:
     # - show menu, show order, add listing, finalize order, exit
@@ -116,7 +120,7 @@ class Interface
   def show_order(order_formatter)
   end
 
-  def add_listing_to_order(listing, order)
+  def add_listing_to_order(listing, amount, order)
     # returns nothing
   end
 
@@ -211,26 +215,71 @@ interface = Interface.new
 interface.show_menu(menu_formatter) # => "drink: 3.50\nfish: 5.00\nsalad: 4.00"
 
 #2 show interface, receive input and exit
+menu = Menu.new
+dish_1 = Dish.new("fish")
+menu.add = (dish_1, 3.50)
+interface = Interface.new(Kernel)
+interface.show_interface # => 
+=begin
+Enter selection
+1: Show menu
+2: Show order
+3: Add item to order
+4: Finalize order
+9: Exit
+=end
 
 #3 display populated menu with prices
+menu = Menu.new
+dish_1 = Dish.new("fish")
+menu.add = (dish_1, 3.50)
+interface = Interface.new(Kernel)
+menu_formatter = MenuFormatter.new(menu)
+interface.show_menu(menu_formatter)  # =>
+=begin
+Menu
+1: Fish (3.50)
+=end
 
-#4 add items to an order (a number of an item) and display the order
+#4 add items to an order (a number of an item) and display the order (receipt)
+menu = Menu.new
+dish_1 = Dish.new("fish")
+dish_2 = Dish.new("pasta")
+menu.add = (dish_1, 3.50)
+menu.add = (dish_1, 4)
+interface = Interface.new(Kernel)
+order = Order.new
+order.add_listing_to_order(menu.available[1], 2, order)  # 2 x pasta
+interface.show_order  # =>
+=begin
+Order
+- Fish (3.50) x 2
+Order total: 7.00
+=end
 
-#5 display itemised receipt with total
-
-#6 receive text after ordering (populate order, complete it, receive text)
-
-#7 finalize order
-
-# TBC - continue from here, populate all integration tests then do step 4, 5
+#5 receive text after ordering (populate order, complete it, receive text)
+menu = Menu.new
+dish_1 = Dish.new("fish")
+dish_2 = Dish.new("pasta")
+menu.add = (dish_1, 3.50)
+menu.add = (dish_1, 4)
+interface = Interface.new(Kernel)
+order = Order.new
+order.add_listing_to_order(menu.available[1], 2, order)
+interface.finalize_order  # =>
+=begin
+Thank you for your order.
+# Twilio: Thank you! Your order was placed and will be delivered before 18:52
 ```
-
-
 
 ### 4. Create Examples as Unit Tests
 
 _Create examples, where appropriate, of the behaviour of each relevant class at
 a more granular level of detail._
+
+```ruby
+# TBC - continue from here
+```
 
 _Encode each example as a test. You can add to the above list as you go._
 
