@@ -8,6 +8,9 @@ Solo project to exercise to practice:
 - appropriate scoping - cover all requirements and avoid feature creep
 - mocking techniques for api testing and unit testing
 
+Notes (TODO):
+- extract function to format prices to two decimals
+
 ## Meal Order Multi-Class Planned Design Recipe
 
 ### 1. Describe the Problem
@@ -210,44 +213,44 @@ _Create examples of the classes being used together in different situations and
 combinations that reflect the ways in which the system will be used._
 
 ```ruby
-#1 populate and return the menu
-menu = Menu.new
-dish_1 = Dish.new("drink")
-dish_2 = Dish.new("fish")
-dish_3 = Dish.new("salad")
-menu.add(dish_1, 3.50)
-menu.add(dish_2, 5)
-menu.add(dish_3, 4)
-menu_formatter = MenuFormatter(menu)
-interface = Interface.new
-interface.show_menu(menu_formatter) # => "drink: 3.50\nfish: 5.00\nsalad: 4.00"
+# #1 populate and return the menu
+# menu = Menu.new
+# dish_1 = Dish.new("drink")
+# dish_2 = Dish.new("fish")
+# dish_3 = Dish.new("salad")
+# menu.add(dish_1, 3.50)
+# menu.add(dish_2, 5)
+# menu.add(dish_3, 4)
+# menu_formatter = MenuFormatter(menu)
+# interface = Interface.new
+# interface.show_menu(menu_formatter) # => "drink: 3.50\nfish: 5.00\nsalad: 4.00"
 
-#2 show interface, receive input and exit
-menu = Menu.new
-dish_1 = Dish.new("fish")
-menu.add = (dish_1, 3.50)
-interface = Interface.new(Kernel)
-interface.show_interface # => 
-=begin
-Enter selection
-1: Show menu
-2: Show order
-3: Add item to order
-4: Finalize order
-9: Exit
-=end
+# #2 show interface, receive input and exit
+# menu = Menu.new
+# dish_1 = Dish.new("fish")
+# menu.add = (dish_1, 3.50)
+# interface = Interface.new(Kernel)
+# interface.show_interface # => 
+# =begin
+# Enter selection
+# 1: Show menu
+# 2: Show order
+# 3: Add item to order
+# 4: Finalize order
+# 9: Exit
+# =end
 
-#3 display populated menu with prices
-menu = Menu.new
-dish_1 = Dish.new("fish")
-menu.add = (dish_1, 3.50)
-interface = Interface.new(Kernel)
-menu_formatter = MenuFormatter.new(menu)
-interface.show_menu(menu_formatter)  # =>
-=begin
-Menu
-1: Fish (3.50)
-=end
+# #3 display populated menu with prices
+# menu = Menu.new
+# dish_1 = Dish.new("fish")
+# menu.add = (dish_1, 3.50)
+# interface = Interface.new(Kernel)
+# menu_formatter = MenuFormatter.new(menu)
+# interface.show_menu(menu_formatter)  # =>
+# =begin
+# Menu
+# 1: Fish (3.50)
+# =end
 
 #4 add items to an order (a number of an item) and display the order (receipt)
 menu = Menu.new
