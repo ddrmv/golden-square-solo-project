@@ -16,17 +16,21 @@ menu = Menu.new
 menu.add(listing_1)
 menu.add(listing_2)
 menu.add(listing_3)
+order = Order.new
+menu_formatter = MenuFormatter.new(menu)
+order_formatter = OrderFormatter.new(order)
 # order = Order.new
 interface = Interface.new(Kernel, menu, order)
-selection = "1"
+selection = "0"
 looper_flag = true
 while looper_flag
   interface.show_interface
+  selection = interface.pick_menu_option
   case selection
   when "1"
-    interface.show_menu
+    interface.show_menu(menu_formatter)
   when "2"
-    interface.show_order
+    interface.show_order(order_formatter)
   when "3"
     interface.add_listing_to_order(listing, order)
   when "4"
@@ -34,7 +38,6 @@ while looper_flag
   when "9"
     looper_flag = false
   else
-    continue
   end
-  selection = interface.pick_menu_option
+
 end

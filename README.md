@@ -11,6 +11,10 @@ Solo project to exercise to practice:
 Notes (TODO):
 - extract function to format prices to two decimals
 
+Handover note (current state, to start from here):
+- mplement Interface reaction to '1'
+- next: implement Interface reaction to '2'
+
 ## Meal Order Multi-Class Planned Design Recipe
 
 ### 1. Describe the Problem
@@ -289,7 +293,7 @@ _Create examples, where appropriate, of the behaviour of each relevant class at
 a more granular level of detail._
 
 ```ruby
-# TBC - continue from here
+# implementing these in .rb files and _spec.rb files
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
@@ -298,3 +302,7 @@ _Encode each example as a test. You can add to the above list as you go._
 
 _After each test you write, follow the test-driving process of red, green,
 refactor to implement the behaviour._
+
+```ruby
+# implementing these in .rb files and _spec.rb files
+```

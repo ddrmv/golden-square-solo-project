@@ -20,11 +20,11 @@ class Interface
   end
 
   def show_menu(menu_formatter)
-    terminal.puts(menu_formatter)
+    @terminal.puts(menu_formatter.format_menu)
   end
 
   def show_order(order_formatter)
-    terminal.puts(order_formatter)
+    @terminal.puts(order_formatter)
   end
 
   def add_listing_to_order(listing, order)  # amount selected inside function
